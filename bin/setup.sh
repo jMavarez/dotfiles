@@ -27,7 +27,7 @@ mkdir -p $COLORS_DIR
 mkdir -p $AUTOLOAD_DIR
 
 wget https://raw.githubusercontent.com/jMavarez/dotfiles/master/.vimrc -O $HOME/.vimrc
-wget https://raw.githubusercontent.com/vim-scripts/Gummybears/master/colors/gummybears.vim -O $COLORS_DIR/gummybears.vim 
+wget https://raw.githubusercontent.com/vim-scripts/Gummybears/master/colors/gummybears.vim -O $COLORS_DIR/gummybears.vim
 
 for PLUGIN in ${PLUGINS[@]}; do
    DIRNAME="$(basename $PLUGIN)"
@@ -38,13 +38,50 @@ cp $PLUGIN_DIR/vim-pathogen/autoload/pathogen.vim $AUTOLOAD_DIR/pathogen.vim
 
 echo "vim ✔"
 
-#TODO:
-#Setup NVM
-#Setup Tana ('till binaries are released')
-#Setup default project folder
-#Setup personal github projects
-#Setup Android Studio
-#Setup bash_profile
-#Setup Zsh
+# TODO:
+# Git breeze
+git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
+~/.scm_breeze/install.sh
+source ~/.bashrc
+echo "Git breeze ✔"
+
+# Zsh
+brew install zsh
+chsh -s /bin/zsh
+echo "Zsh ✔"
+
+# The Silver Searcher
+brew install the_silver_searcher
+# If Ubuntu / Debian -> apt-get install silversearcher-ag
+echo "The Silver Searcher ✔"
+
+# Thefuck
+brew install thefuck
+echo "Thefuck ✔"
+
+# Setup NVM (?)
+
+# Setup default project folder
+PROJECT_FOLDER="$HOME/Desktop/projects"
+mkdir -p $PROJECT_FOLDER
+echo "Dev workspaces ✔"
+
+# Setup personal github projects
+BASE_GITHUB="https://github.com/jMavarez"
+PROJECTS=(
+  "Tana",
+  "best-resume-ever"
+)
+
+for PROJECT in ${PROJECTS[@]}; do
+   DIRNAME="$(basename $PROJECT)"
+   git clone "$BASE_GITHUB/$PROJECT.git" $PROJECT_FOLDER/$DIRNAME
+done
+echo "Projects ✔"
+
+# Setup Android Studio stuff
+
+# Setup bash_profile
+# echo "bash_profile ✔"
 
 echo "(╯°□°）╯︵ ┻━┻) SETUP DONE!"

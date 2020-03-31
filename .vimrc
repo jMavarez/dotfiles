@@ -11,6 +11,11 @@ set tabstop=2
 set softtabstop=2
 set expandtab
 
+" Git exists, who needs swap files
+set nobackup
+set nowb
+set noswapfile
+
 " Airline
 let g:airline_theme = 'wombat'
 let g:airline#extensions#tabline#enabled = 0 
@@ -26,6 +31,8 @@ set laststatus=2
 map <C-b> :NERDTreeToggle<CR>
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+map <C-Left> <Esc>:bprev<CR>
+map <C-Right> <Esc>:bnext<CR>
 
 " Pathogen
 execute pathogen#infect()
