@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+GRADLEW=./gradlew
+
+if [[ ! -f $GRADLEW ]]; then
+    echo "$GRADLEW could not be found in current directory."
+fi
+
+# TODO: Support Gradle execution params
+while [[ $# -gt 0 ]]; do
+    key="$1"
+
+    case $key in
+        -m|--module)
+            MODULE="$2"
+            shift
+            shift
+            ;;
+        -o|--offline)
+            OFFLINE=YES
+            shift
+            ;;
+        *)
+    esac
+done
+
+if [[ -n $MODULE ]]; then
+    echo "yes $MODULE"
+    # TODO: Improve task filtering for specific module
+    selected=$(./gradlew :$MODULE:tasks --all | egrep '[a-zA-Z]+(\n| )' | sed -e "s/ - .*//" | fzf)
+else
+    echo "no $MODULE"
+    selected=$(./gradlew tasks --all | egrep '[a-zA-Z0-9_-]+:[a-zA-Z0-9_-]+(\n|\r)?' | sed -e "s/ - .*//" | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+# TODO: Support Gradle execution params
+$GRADLEW $selected --offline --no-daemon -a
+
