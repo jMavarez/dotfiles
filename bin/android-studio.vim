@@ -23,8 +23,6 @@ nnoremap <leader>gs :action GotoSuperMethod<CR>
 
 # Code editting
 nnoremap <leader>/ :action CommentByLineComment<CR>
-vnoremap <leader>/ :action CommentByLineComment<CR>
-nnoremap <leader>pr :action RenameElement<CR>
-nnoremap <leader>pf :action ReformatCode<CR>
-vnoremap <leader>pf :action ReformatCode<CR>
+nnoremap <leader>re :action RenameElement<CR>
+nnoremap <leader>df :action ReformatCode<CR>
 
