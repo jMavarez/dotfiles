@@ -4,6 +4,7 @@ GRADLEW=./gradlew
 
 if [[ ! -f $GRADLEW ]]; then
     echo "$GRADLEW could not be found in current directory."
+    exit 0
 fi
 
 # TODO: Support Gradle execution params
