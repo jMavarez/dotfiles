@@ -7,22 +7,23 @@ set showmode
 
 let mapleader = " "
 
-# Navigation
-nnoremap <leader>h <C-W>h
-nnoremap <leader>j <C-W>j
-nnoremap <leader>k <C-W>k
-nnoremap <leader>l <C-W>l
+nnoremap <leader>h :action Back<CR>
+nnoremap <leader>l :action Forward<CR>
 
 # LSP
-nnoremap <leader>ff :call FindUsages()<CR>
 nnoremap <leader>fu :action FindUsages<CR>
 nnoremap <leader>ga :action GotoAction<CR>
 nnoremap <leader>gd :action GotoDeclaration<CR>
 nnoremap <leader>gi :action GotoImplementation<CR>
 nnoremap <leader>gs :action GotoSuperMethod<CR>
+nnoremap <leader>ge :action GotoNextError<CR>
+nnoremap <leader>gE :action GoToPreviousError<CR>
+nnoremap <leader>gn :action SelectPreviousOccurrence<CR>
+nnoremap <leader>gN :action UnselectPreviousOccurrence<CR>
 
-# Code editting
+# Code editing
 nnoremap <leader>/ :action CommentByLineComment<CR>
+vnoremap <leader>/ :action CommentByLineComment<CR>
 nnoremap <leader>re :action RenameElement<CR>
 nnoremap <leader>df :action ReformatCode<CR>
-
+vnoremap <leader>df :action ReformatCode<CR>
