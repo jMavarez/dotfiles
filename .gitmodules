@@ -1,0 +1,3 @@
+[submodule "aircore"]
+	path = aircore
+	url = git@github.com:jdMavarez/aircore-tools
