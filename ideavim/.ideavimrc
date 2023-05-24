@@ -7,19 +7,31 @@ set showmode
 
 let mapleader = " "
 
+# Navigation
 nnoremap <leader>h :action Back<CR>
 nnoremap <leader>l :action Forward<CR>
+nnoremap <leader>sr :action RecentFiles<CR>
+nnoremap <leader>gc :action GotoClass<CR>
+nnoremap <leader>gf :action GotoFile<CR>
+nnoremap <leader>ga :action GotoAction<CR>
+nnoremap <leader>adb :action com.developerphil.adbidea.action.AdbIdeaQuickList<CR>
+
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 
 # LSP
 nnoremap <leader>fu :action FindUsages<CR>
-nnoremap <leader>ga :action GotoAction<CR>
+
 nnoremap <leader>gd :action GotoDeclaration<CR>
 nnoremap <leader>gi :action GotoImplementation<CR>
 nnoremap <leader>gs :action GotoSuperMethod<CR>
 nnoremap <leader>ge :action GotoNextError<CR>
 nnoremap <leader>gE :action GoToPreviousError<CR>
+
 nnoremap <leader>gn :action SelectPreviousOccurrence<CR>
 nnoremap <leader>gN :action UnselectPreviousOccurrence<CR>
+
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
 
 # Code editing
 nnoremap <leader>/ :action CommentByLineComment<CR>
@@ -27,3 +39,20 @@ vnoremap <leader>/ :action CommentByLineComment<CR>
 nnoremap <leader>re :action RenameElement<CR>
 nnoremap <leader>df :action ReformatCode<CR>
 vnoremap <leader>df :action ReformatCode<CR>
+
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-=> :action Unsplit<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+# IdeaVim
+nnoremap \e :e ~/.dotfiles/ideavim/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>

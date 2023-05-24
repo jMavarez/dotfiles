@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
 
 " Telescope stuff
 Plug 'nvim-lua/popup.nvim'
@@ -25,6 +26,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " LSP stuff
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'github/copilot.vim'
 
 call plug#end()
 
