@@ -1,4 +1,4 @@
-set visualbell 
+set visualbell
 set noerrorbells 
 set number
 set relativenumber
@@ -15,6 +15,9 @@ nnoremap <leader>gc :action GotoClass<CR>
 nnoremap <leader>gf :action GotoFile<CR>
 nnoremap <leader>ga :action GotoAction<CR>
 nnoremap <leader>adb :action com.developerphil.adbidea.action.AdbIdeaQuickList<CR>
+nnoremap <leader>rr :action RecentProjectListGroup<CR>
+nnoremap <leader>gm :action FileStructurePopup<CR>
+nnoremap <leader>gr :action ChooseRunConfiguration<CR>
 
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 
@@ -23,7 +26,7 @@ nnoremap <leader>fu :action FindUsages<CR>
 
 nnoremap <leader>gd :action GotoDeclaration<CR>
 nnoremap <leader>gi :action GotoImplementation<CR>
-nnoremap <leader>gs :action GotoSuperMethod<CR>
+nnoremap <leader>gs :action GotoSymbol<CR>
 nnoremap <leader>ge :action GotoNextError<CR>
 nnoremap <leader>gE :action GoToPreviousError<CR>
 
@@ -32,6 +35,11 @@ nnoremap <leader>gN :action UnselectPreviousOccurrence<CR>
 
 nnoremap [[ :action MethodUp<CR>
 nnoremap ]] :action MethodDown<CR>
+
+# Git Navigation
+nnoremap <leader>vp :action VcsShowPrevChangeMarker<CR>
+nnoremap <leader>vn :action VcsShowNextChangeMarker<CR>
+nnoremap <leader>vx :action Vcs.RollbackChangedLines<CR>
 
 # Code editing
 nnoremap <leader>/ :action CommentByLineComment<CR>

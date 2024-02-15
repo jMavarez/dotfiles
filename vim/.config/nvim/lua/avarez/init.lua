@@ -1,1 +1,2 @@
-require('avarez.lsp')
+require('avarez.set')
+require('avarez.remap')
