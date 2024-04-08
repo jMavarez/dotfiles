@@ -10,9 +10,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
         map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
         map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementations')
-        map('<leader>rn', function() vim.lsp.buf.rename() end, '[R]e[N]ame')
+        map('<leader>re', function() vim.lsp.buf.rename() end, '[Re]name')
         map('<leader>df', function() vim.lsp.buf.format() end, '[D]o [F]ormat')
         map('K', function() vim.lsp.buf.hover() end, 'Hover documentation')
+        map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
     end
 })
 
@@ -66,20 +67,3 @@ cmp.setup {
     },
     snippets = {},
 }
-
--- local cmp = require('cmp')
--- local cmp_mappings = {
---     ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = 'select' }),
---     ['<C-n>'] = cmp.mapping.select_next_item({ behavior = 'select' }),
---     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
---     ['<C-Space>'] = cmp.mapping.complete(),
--- }
---
--- cmp.setup({
---     sources = {
---         { name = 'nvim_lsp' },
---     },
---     mapping = cmp_mappings,
---     snippets = {},
--- })
---

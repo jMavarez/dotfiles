@@ -1,6 +1,6 @@
-require 'tokyonight'.setup({
+require 'tokyonight'.setup {
     style = "night",
-    transparent = false,
+    transparent = true,
     italics = {
         comments = true,
         keywords = true,
@@ -15,11 +15,12 @@ require 'tokyonight'.setup({
         bg_popup = "#1a1b26",
         bg_highlight = "#1a1b26"
     }
-})
+}
 -- require 'caret'.setup({
 --     options = {
 --         transparent = true,
 --     }
 -- })
-vim.cmd.colorscheme('tokyonight')
+vim.cmd.colorscheme 'tokyonight'
+-- vim.cmd.hi 'Comment gui=none'
 --vim.cmd.colorscheme('caret')

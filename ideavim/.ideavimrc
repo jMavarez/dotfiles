@@ -10,25 +10,24 @@ let mapleader = " "
 # Navigation
 nnoremap <leader>h :action Back<CR>
 nnoremap <leader>l :action Forward<CR>
-nnoremap <leader>sr :action RecentFiles<CR>
+nnoremap <leader>rf :action RecentFiles<CR>
 nnoremap <leader>gc :action GotoClass<CR>
 nnoremap <leader>gf :action GotoFile<CR>
 nnoremap <leader>ga :action GotoAction<CR>
 nnoremap <leader>adb :action com.developerphil.adbidea.action.AdbIdeaQuickList<CR>
-nnoremap <leader>rr :action RecentProjectListGroup<CR>
-nnoremap <leader>gm :action FileStructurePopup<CR>
+nnoremap <leader>rp :action RecentProjectListGroup<CR>
 nnoremap <leader>gr :action ChooseRunConfiguration<CR>
 
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 
 # LSP
-nnoremap <leader>fu :action FindUsages<CR>
-
-nnoremap <leader>gd :action GotoDeclaration<CR>
-nnoremap <leader>gi :action GotoImplementation<CR>
-nnoremap <leader>gs :action GotoSymbol<CR>
-nnoremap <leader>ge :action GotoNextError<CR>
-nnoremap <leader>gE :action GoToPreviousError<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gr :action FindUsages<CR>
+nnoremap gI :action GotoImplementation<CR>
+nnoremap gS :action GotoSymbol<CR>
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action GoToPreviousError<CR>
+nnoremap <leader>ds :action FileStructurePopup<CR>
 
 nnoremap <leader>gn :action SelectPreviousOccurrence<CR>
 nnoremap <leader>gN :action UnselectPreviousOccurrence<CR>
