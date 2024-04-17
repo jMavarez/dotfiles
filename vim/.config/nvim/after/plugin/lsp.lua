@@ -19,17 +19,28 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- Language Servers
 local servers = {
-    clangd = {},
+    clangd = {
+        capabilities = {
+            signatureHelpProvider = false,
+        },
+    },
     lua_ls = {
         settings = {
             Lua = {
-                diagnostics = {
-                    globals = { 'vim' }
+                runtime = { version = 'LuaJIT' },
+                workspace = {
+                    checkThirdParty = false,
+                    library = {
+                        '${3rd}/luv/library',
+                        unpack(vim.api.nvim_get_runtime_file('', true)),
+                    },
                 }
             }
         }
     },
     kotlin_language_server = {},
+    gopls = {},
+    jdtls = {},
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

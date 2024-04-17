@@ -7,18 +7,32 @@ set showmode
 
 let mapleader = " "
 
+# There's a weird delay with IdeaVim
+#inoremap jf <esc>
+
 # Navigation
 nnoremap <leader>h :action Back<CR>
 nnoremap <leader>l :action Forward<CR>
 nnoremap <leader>rf :action RecentFiles<CR>
 nnoremap <leader>gc :action GotoClass<CR>
 nnoremap <leader>gf :action GotoFile<CR>
-nnoremap <leader>ga :action GotoAction<CR>
+nnoremap ga :action GotoAction<CR>
 nnoremap <leader>adb :action com.developerphil.adbidea.action.AdbIdeaQuickList<CR>
 nnoremap <leader>rp :action RecentProjectListGroup<CR>
 nnoremap <leader>gr :action ChooseRunConfiguration<CR>
 
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 # LSP
 nnoremap gd :action GotoDeclaration<CR>
@@ -36,12 +50,14 @@ nnoremap [[ :action MethodUp<CR>
 nnoremap ]] :action MethodDown<CR>
 
 # Git Navigation
-nnoremap <leader>vp :action VcsShowPrevChangeMarker<CR>
-nnoremap <leader>vn :action VcsShowNextChangeMarker<CR>
+nnoremap ,vp :action VcsShowPrevChangeMarker<CR>
+nnoremap .vn :action VcsShowNextChangeMarker<CR>
 nnoremap <leader>vx :action Vcs.RollbackChangedLines<CR>
 
 # Code editing
-nnoremap <leader>/ :action CommentByLineComment<CR>
+nnoremap gc :action CommentByLineComment<CR>
+vnoremap gc :action CommentByLineComment<CR>
+vnoremap <leader>/ :action CommentByLineComment<CR>
 vnoremap <leader>/ :action CommentByLineComment<CR>
 nnoremap <leader>re :action RenameElement<CR>
 nnoremap <leader>df :action ReformatCode<CR>
@@ -54,11 +70,6 @@ nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
 
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
-
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
 
 # IdeaVim
 nnoremap \e :e ~/.dotfiles/ideavim/.ideavimrc<CR>

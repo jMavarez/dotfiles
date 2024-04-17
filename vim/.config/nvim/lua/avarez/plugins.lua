@@ -1,7 +1,7 @@
 require 'lazy'.setup {
     -- Code editing
-    'github/copilot.vim',
-    'tpope/vim-sleuth',                    -- Detect tabstop and shiftwidth automatically
+    -- 'github/copilot.vim',
+    'tpope/vim-sleuth',                           -- Detect tabstop and shiftwidth automatically
     { 'numToStr/Comment.nvim',       opts = {} }, -- Comment visual regions/lines
 
     -- Fuzzy Finder (files, etc)
@@ -28,6 +28,21 @@ require 'lazy'.setup {
         },
     },
     'theprimeagen/harpoon',
+    {
+        "kndndrj/nvim-dbee",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+        },
+        build = function()
+            -- Install tries to automatically detect the install method.
+            -- if it fails, try calling it with one of these parameters:
+            --    "curl", "wget", "bitsadmin", "go"
+            require("dbee").install()
+        end,
+        config = function()
+            require("dbee").setup( --[[optional config]])
+        end,
+    },
 
     -- LSP Configuration & Plugins
     {
@@ -73,6 +88,14 @@ require 'lazy'.setup {
     -- Colorschemes
     {
         'folke/tokyonight.nvim',
+        priority = 1000,
+    },
+    {
+        'pgdouyon/vim-yin-yang',
+        priority = 1000,
+    },
+    {
+        'yunlingz/equinusocio-material.vim',
         priority = 1000,
     },
 
