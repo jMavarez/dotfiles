@@ -63,18 +63,23 @@ require 'mason-lspconfig'.setup {
         end,
     },
 }
-local cmp = require 'cmp'
-cmp.setup {
-    completion = { completeopt = 'menu,menuone,noinsert' },
-    sources = {
-        { name = 'nvim_lsp' },
-        { name = 'path' },
-    },
-    mapping = cmp.mapping.preset.insert {
-        ['<C-p>'] = cmp.mapping.select_prev_item {},
-        ['<C-n>'] = cmp.mapping.select_next_item {},
-        ['<C-y>'] = cmp.mapping.confirm { select = true },
-        ['<C-Space>'] = cmp.mapping.complete {},
-    },
-    snippets = {},
-}
+
+vim.api.nvim_create_autocmd('InsertEnter', {
+    callback = function(event)
+        local cmp = require 'cmp'
+        cmp.setup({
+            completion = { completeopt = 'menu,menuone,noinsert' },
+            sources = {
+                { name = 'nvim_lsp' },
+                { name = 'path' },
+            },
+            mapping = cmp.mapping.preset.insert {
+                ['<C-p>'] = cmp.mapping.select_prev_item {},
+                ['<C-n>'] = cmp.mapping.select_next_item {},
+                ['<C-y>'] = cmp.mapping.confirm { select = true },
+                ['<C-Space>'] = cmp.mapping.complete {},
+            },
+            snippets = {},
+        })
+    end
+})
