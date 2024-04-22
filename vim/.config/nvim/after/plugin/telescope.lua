@@ -13,6 +13,7 @@ local builtin = require 'telescope.builtin'
 
 vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = '[P]roject [F]iles' })
 vim.keymap.set('n', '<C-g>', builtin.git_files, { desc = '[G]it files' })
+vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>s/', function()
     builtin.live_grep {
         grep_open_files = true,
@@ -21,7 +22,7 @@ vim.keymap.set('n', '<leader>s/', function()
 end, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>/', function()
     builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
+        -- winblend = 10,
         previewer = false,
     })
 end, { desc = '[/] Fuzzily search in current buffer' })

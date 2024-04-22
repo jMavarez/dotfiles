@@ -1,3 +1,3 @@
-require 'avarez.set'
-require 'avarez.remap'
-require 'avarez.plugins'
+-- require 'avarez.set'
+-- require 'avarez.remap'
+-- require 'avarez.plugins'

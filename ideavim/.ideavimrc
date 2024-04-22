@@ -8,7 +8,14 @@ set showmode
 let mapleader = " "
 
 # There's a weird delay with IdeaVim
-#inoremap jf <esc>
+inoremap jf <esc>
+
+nnoremap ; :
+
+sethandler <S-j> a:vim
+sethandler <S-k> a:vim
+vnoremap <S-j> :m '>+1<CR>gv=gv'
+vnoremap <S-k> :m '<-2<CR>gv=gv'
 
 # Navigation
 nnoremap <leader>h :action Back<CR>

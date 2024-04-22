@@ -14,6 +14,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map('<leader>df', function() vim.lsp.buf.format() end, '[D]o [F]ormat')
         map('K', function() vim.lsp.buf.hover() end, 'Hover documentation')
         map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+        map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
     end
 })
 
@@ -38,13 +39,26 @@ local servers = {
             }
         }
     },
-    kotlin_language_server = {},
+    -- jdtls = {
+    --     capabilities = {
+    --         documentOnTypeFormattingProvider = false,
+    --         documentLinkProvider = false,
+    --         colorProvider = false
+    --     },
+    -- },
+    kotlin_language_server = {
+        capabilities = {
+            documentOnTypeFormattingProvider = false,
+            documentLinkProvider = false,
+            colorProvider = false
+        },
+    },
     gopls = {},
-    jdtls = {},
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 
 require 'mason'.setup {}
 
@@ -65,12 +79,21 @@ require 'mason-lspconfig'.setup {
 }
 
 vim.api.nvim_create_autocmd('InsertEnter', {
-    callback = function(event)
+    callback = function(_)
         local cmp = require 'cmp'
+        local luasnip = require 'luasnip'
+        luasnip.config.setup {}
+
         cmp.setup({
+            snippet = {
+                expand = function(args)
+                    luasnip.lsp_expand(args.body)
+                end,
+            },
             completion = { completeopt = 'menu,menuone,noinsert' },
             sources = {
                 { name = 'nvim_lsp' },
+                { name = 'luasnip' },
                 { name = 'path' },
             },
             mapping = cmp.mapping.preset.insert {
@@ -80,6 +103,15 @@ vim.api.nvim_create_autocmd('InsertEnter', {
                 ['<C-Space>'] = cmp.mapping.complete {},
             },
             snippets = {},
+            window = {
+                completion = {
+                    border = 'rounded',
+                    winhighlight = "Normal:CmpNormal",
+                },
+                documentation = {
+                    border = 'rounded',
+                },
+            },
         })
     end
 })
