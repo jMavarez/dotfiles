@@ -31,9 +31,9 @@ nnoremap <leader>gr :action ChooseRunConfiguration<CR>
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 
 nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz

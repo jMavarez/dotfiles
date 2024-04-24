@@ -8,6 +8,7 @@
   "equinusocio-material.vim": { "branch": "master", "commit": "89770779e366cd21a2501720068fa607183c1e72" },
   "fidget.nvim": { "branch": "main", "commit": "1ba38e4cbb24683973e00c2e36f53ae64da38ef5" },
   "fogbell.vim": { "branch": "master", "commit": "274cc13184f6a7d0589650c0763c94cef431b319" },
+  "gitgud.nvim": { "branch": "master", "commit": "15117956e33eadc1f266d110b044c178a2f655f9" },
   "gitsigns.nvim": { "branch": "main", "commit": "035da036e68e509ed158414416c827d022d914bd" },
   "harpoon": { "branch": "master", "commit": "ccae1b9bec717ae284906b0bf83d720e59d12b91" },
   "lazy.nvim": { "branch": "main", "commit": "3f13f080434ac942b150679223d54f5ca91e0d52" },

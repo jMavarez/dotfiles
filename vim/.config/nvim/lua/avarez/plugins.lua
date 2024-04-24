@@ -126,6 +126,10 @@ require 'lazy'.setup {
         'jaredgorski/fogbell.vim',
         priority = 1000,
     },
+    {
+        'elianiva/gitgud.nvim',
+        priority = 1000,
+    },
 
     -- Utils
     'echasnovski/mini.nvim',
