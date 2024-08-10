@@ -2,8 +2,11 @@ set visualbell
 set noerrorbells 
 set number
 set relativenumber
-set incsearch
 set showmode
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 
 let mapleader = " "
 
@@ -11,6 +14,8 @@ let mapleader = " "
 inoremap jf <esc>
 
 nnoremap ; :
+
+nnoremap <Esc> :nohls<CR>
 
 sethandler <S-j> a:vim
 sethandler <S-k> a:vim
@@ -28,6 +33,7 @@ nnoremap <leader>adb :action com.developerphil.adbidea.action.AdbIdeaQuickList<C
 nnoremap <leader>rp :action RecentProjectListGroup<CR>
 nnoremap <leader>gr :action ChooseRunConfiguration<CR>
 
+nnoremap <leader>k :action ShowHoverInfo<CR>
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 
 nnoremap <c-h> <c-w>h
@@ -57,8 +63,8 @@ nnoremap [[ :action MethodUp<CR>
 nnoremap ]] :action MethodDown<CR>
 
 # Git Navigation
-nnoremap ,vp :action VcsShowPrevChangeMarker<CR>
-nnoremap .vn :action VcsShowNextChangeMarker<CR>
+nnoremap .vp :action VcsShowPrevChangeMarker<CR>zz
+nnoremap .vn :action VcsShowNextChangeMarker<CR>zz
 nnoremap <leader>vx :action Vcs.RollbackChangedLines<CR>
 
 # Code editing

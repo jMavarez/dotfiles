@@ -1,6 +1,3 @@
-pcall(require 'telescope'.load_extension, 'fzf')
-pcall(require 'telescope'.load_extension, 'ui-select')
-
 require 'telescope'.setup {
     defaults = {
         -- layout_config = {
