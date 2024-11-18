@@ -47,6 +47,9 @@ nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+nnoremap ciq ci"
+nnoremap diq di"
+
 # LSP
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gr :action FindUsages<CR>
@@ -63,8 +66,8 @@ nnoremap [[ :action MethodUp<CR>
 nnoremap ]] :action MethodDown<CR>
 
 # Git Navigation
-nnoremap .vp :action VcsShowPrevChangeMarker<CR>zz
-nnoremap .vn :action VcsShowNextChangeMarker<CR>zz
+nnoremap ,h :action VcsShowPrevChangeMarker<CR>zz
+nnoremap .h :action VcsShowNextChangeMarker<CR>zz
 nnoremap <leader>vx :action Vcs.RollbackChangedLines<CR>
 
 # Code editing
@@ -83,6 +86,8 @@ nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
 
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
+
+noremap <leader>bb :action ToggleLineBreakpoint<CR>
 
 # IdeaVim
 nnoremap \e :e ~/.dotfiles/ideavim/.ideavimrc<CR>

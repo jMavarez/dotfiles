@@ -33,8 +33,16 @@ set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
-set("n", "<C-.>", "5<C-w>>", { desc = "Resize + [Expand]" })
-set("n", "<C-,>", "5<C-w><", { desc = "Resize - [Reduce]" })
+set("n", "<C-.>", "5<C-w>>", { desc = "Resize + [Width]" })
+set("n", "<C-,>", "5<C-w><", { desc = "Resize - [Width]" })
+set("n", "<C-;>", "5<C-w>-", { desc = "Resize + [Height]" })
+set("n", "<C-'>", "5<C-w>+", { desc = "Resize - [Height]" })
 
 set("n", "<C-d>", "<C-d>zz", { desc = "Page Down Centered" })
 set("n", "<C-u>", "<C-u>zz", { desc = "Page Up Centered" })
+
+-- set("n", "<C-#>", "#zz", { desc = "Previous ocurrance centered" })
+-- set("n", "<C-*>", "*zz", { desc = "Next ocurrance centered" })
+
+-- Terminal
+set("t", "<Esc>", "<C-\\><C-n>")

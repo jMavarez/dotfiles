@@ -1,9 +1,7 @@
 require 'telescope'.setup {
     defaults = {
-        -- layout_config = {
-        --     width = 0.9,
-        -- },
-   },
+        selection_caret = "█ ",
+    },
     extensions = {
         ['ui-select'] = {
             require 'telescope.themes'.get_dropdown(),

@@ -16,25 +16,8 @@ gitsigns.setup({
 		end
 
 		-- Navigation
-		map("n", ".h", function()
-			if vim.wo.diff then
-				return "]c"
-			end
-			vim.schedule(function()
-				gitsigns.next_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true })
-
-		map("n", ",h", function()
-			if vim.wo.diff then
-				return "[c"
-			end
-			vim.schedule(function()
-				gitsigns.prev_hunk()
-			end)
-			return "<Ignore>"
-		end, { expr = true })
+		map("n", ".h", gitsigns.next_hunk, { desc = "Git: [.]Next [H]unk" })
+		map("n", ",h", gitsigns.prev_hunk, { desc = "Git: [,]Previous [H]unk" })
 
 		-- Actions
 		map("n", "<leader>hdf", gitsigns.diffthis, { desc = "Git: [H]unk [D]if[F]" })
@@ -42,7 +25,7 @@ gitsigns.setup({
 		map("n", "<leader>td", gitsigns.toggle_deleted, { desc = "Git: [T]oggle [D]eleted" })
 		map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "Git: [H]unk [S]tage" })
 		map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Git: [H]unk [P]review" })
-		--        map('n', '<leader>hr', gs.reset_hunk)
+		map('n', '<leader>dh', gitsigns.reset_hunk, { desc = "Git: [D]elete [H]unk" })
 		--        map('v', '<leader>hs', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
 		--        map('v', '<leader>hr', function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end)
 		--        map('n', '<leader>hS', gs.stage_buffer)

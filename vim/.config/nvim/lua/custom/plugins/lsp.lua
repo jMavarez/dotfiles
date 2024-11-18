@@ -77,6 +77,7 @@ return {
 					},
 					-- filetypes = { "kotlin" },
 				},
+				htmx = true,
 			}
 
 			local servers_to_install = vim.tbl_filter(function(key)
@@ -94,6 +95,7 @@ return {
 				"stylua",
 				"lua_ls",
 				"ktlint",
+				"htmlbeautifier",
 			}
 
 			vim.list_extend(ensure_installed, servers_to_install)
@@ -138,15 +140,16 @@ return {
 				},
 			})
 
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				callback = function(args)
-					require("conform").format({
-						bufnr = args.buf,
-						lsp_fallback = true,
-						quiet = true,
-					})
-				end,
-			})
+			-- TODO: Auto save using neovim's buf.format
+			-- vim.api.nvim_create_autocmd("BufWritePre", {
+			-- 	callback = function(args)
+			-- 		require("conform").format({
+			-- 			bufnr = args.buf,
+			-- 			lsp_fallback = true,
+			-- 			quiet = true,
+			-- 		})
+			-- 	end,
+			-- })
 		end,
 	},
 }
