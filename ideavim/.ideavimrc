@@ -50,6 +50,11 @@ nnoremap N Nzzzv
 nnoremap ciq ci"
 nnoremap diq di"
 
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
 # LSP
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gr :action FindUsages<CR>

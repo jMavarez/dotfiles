@@ -41,8 +41,10 @@ set("n", "<C-'>", "5<C-w>+", { desc = "Resize - [Height]" })
 set("n", "<C-d>", "<C-d>zz", { desc = "Page Down Centered" })
 set("n", "<C-u>", "<C-u>zz", { desc = "Page Up Centered" })
 
--- set("n", "<C-#>", "#zz", { desc = "Previous ocurrance centered" })
--- set("n", "<C-*>", "*zz", { desc = "Next ocurrance centered" })
+set("n", "#", "#zz", { desc = "Previous match centered" })
+set("n", "*", "*zz", { desc = "Next match centered" })
+set("n", "g#", "g#zz", { desc = "Previous partial match centered" })
+set("n", "g*", "g*zz", { desc = "Next partial match centered" })
 
 -- Terminal
 set("t", "<Esc>", "<C-\\><C-n>")

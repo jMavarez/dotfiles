@@ -12,6 +12,7 @@ require 'telescope'.setup {
 local builtin = require 'telescope.builtin'
 
 vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = '[P]roject [F]iles' })
+vim.keymap.set('n', '<leader>ob', builtin.buffers, { desc = '[O]pen [B]uffers' })
 vim.keymap.set('n', '<C-g>', builtin.git_files, { desc = '[G]it files' })
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>s/', function()

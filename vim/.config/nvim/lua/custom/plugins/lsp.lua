@@ -21,11 +21,41 @@ return {
 			local lspconfig = require("lspconfig")
 			local servers = {
 				bashls = true,
-				clangd = true,
+				-- FIXME: Hard coded for now. will only work for Redondo project.
+				clangd = {
+					cmd = {
+						"clangd",
+						"--background-index",
+						"--clang-tidy",
+						"--completion-style=detailed",
+						"--header-insertion=never",
+						"--cross-file-rename",
+						"--compile-commands-dir=./redondo/.cxx/Debug/6d4h5723/arm64-v8a"
+					},
+					filetypes = { "c", "cpp", "objc", "objcpp" },
+					root_dir = require('lspconfig.util').root_pattern('compile_commands.json', 'compile_flags.txt', '.git'),
+					single_file_support = true,
+					capabilities = require('cmp_nvim_lsp').default_capabilities(),
+
+					init_options = {
+						clangdFileStatus = true, -- Show file status in LSP client
+					},
+
+					settings = {
+						clangd = {
+							completion = {
+								detailedLabel = true,
+							},
+							diagnostics = {
+								clangTidy = true, -- Enable Clang-Tidy diagnostics
+							}
+						}
+					},
+				},
 				gopls = true,
 				lua_ls = true,
 				-- gdtoolkit = true,
-				tsserver = true,
+				ts_ls = true,
 				lexical = {
 					cmd = {
 						"/Users/josuemavarez/.local/share/nvim/mason/bin/lexical",
@@ -35,48 +65,48 @@ return {
 						return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
 					end,
 				},
-				kotlin_language_server = {
-					kotlin = {
-						java = {
-							home = os.getenv("JAVA_HOME"),
-						},
-					},
-					command = "/Users/josuemavarez/.local/shared/nvim/mason/bin/kotlin_language_server",
-					-- → kotlin.compiler.jvm.target                     default: "default"
-					-- → kotlin.completion.snippets.enabled             default: true
-					-- → kotlin.debounceTime                            default: 250
-					-- → kotlin.debugAdapter.enabled                    default: true
-					-- → kotlin.debugAdapter.path                       default: ""
-					-- → kotlin.diagnostics.debounceTime                default: 250
-					-- → kotlin.diagnostics.enabled                     default: true
-					-- → kotlin.diagnostics.level                       default: "hint"
-					-- → kotlin.externalSources.autoConvertToKotlin     default: false
-					-- → kotlin.externalSources.useKlsScheme            default: true
-					-- → kotlin.indexing.enabled                        default: true
-					-- → kotlin.inlayHints.chainedHints                 default: false
-					-- → kotlin.inlayHints.parameterHints               default: false
-					-- → kotlin.inlayHints.typeHints                    default: false
-					-- → kotlin.java.home                               default: ""
-					-- → kotlin.java.opts                               default: ""
-					-- → kotlin.languageServer.debugAttach.autoSuspend  default: false
-					-- → kotlin.languageServer.debugAttach.enabled      default: false
-					-- → kotlin.languageServer.debugAttach.port         default: 5005
-					-- → kotlin.languageServer.enabled                  default: true
-					-- → kotlin.languageServer.path                     default: ""
-					-- → kotlin.languageServer.port                     default: 0
-					-- → kotlin.languageServer.transport                default: "stdio"
-					-- → kotlin.linting.debounceTime                    default: 250
-					-- → kotlin.scripts.buildScriptsEnabled             default: false
-					-- → kotlin.scripts.enabled                         default: false
-					-- → kotlin.snippetsEnabled                         default: true
-					-- → kotlin.trace.server                            default: "off"
-					capabilities = {
-						documentOnTypeFormattingProvider = false,
-						documentLinkProvider = false,
-						colorProvider = false,
-					},
-					-- filetypes = { "kotlin" },
-				},
+				-- kotlin_language_server = {
+				-- 	kotlin = {
+				-- 		java = {
+				-- 			home = os.getenv("JAVA_HOME"),
+				-- 		},
+				-- 	},
+				-- 	command = "/Users/josuemavarez/.local/shared/nvim/mason/bin/kotlin_language_server",
+				-- 	-- → kotlin.compiler.jvm.target                     default: "default"
+				-- 	-- → kotlin.completion.snippets.enabled             default: true
+				-- 	-- → kotlin.debounceTime                            default: 250
+				-- 	-- → kotlin.debugAdapter.enabled                    default: true
+				-- 	-- → kotlin.debugAdapter.path                       default: ""
+				-- 	-- → kotlin.diagnostics.debounceTime                default: 250
+				-- 	-- → kotlin.diagnostics.enabled                     default: true
+				-- 	-- → kotlin.diagnostics.level                       default: "hint"
+				-- 	-- → kotlin.externalSources.autoConvertToKotlin     default: false
+				-- 	-- → kotlin.externalSources.useKlsScheme            default: true
+				-- 	-- → kotlin.indexing.enabled                        default: true
+				-- 	-- → kotlin.inlayHints.chainedHints                 default: false
+				-- 	-- → kotlin.inlayHints.parameterHints               default: false
+				-- 	-- → kotlin.inlayHints.typeHints                    default: false
+				-- 	-- → kotlin.java.home                               default: ""
+				-- 	-- → kotlin.java.opts                               default: ""
+				-- 	-- → kotlin.languageServer.debugAttach.autoSuspend  default: false
+				-- 	-- → kotlin.languageServer.debugAttach.enabled      default: false
+				-- 	-- → kotlin.languageServer.debugAttach.port         default: 5005
+				-- 	-- → kotlin.languageServer.enabled                  default: true
+				-- 	-- → kotlin.languageServer.path                     default: ""
+				-- 	-- → kotlin.languageServer.port                     default: 0
+				-- 	-- → kotlin.languageServer.transport                default: "stdio"
+				-- 	-- → kotlin.linting.debounceTime                    default: 250
+				-- 	-- → kotlin.scripts.buildScriptsEnabled             default: false
+				-- 	-- → kotlin.scripts.enabled                         default: false
+				-- 	-- → kotlin.snippetsEnabled                         default: true
+				-- 	-- → kotlin.trace.server                            default: "off"
+				-- 	capabilities = {
+				-- 		documentOnTypeFormattingProvider = false,
+				-- 		documentLinkProvider = false,
+				-- 		colorProvider = false,
+				-- 	},
+				-- 	-- filetypes = { "kotlin" },
+				-- },
 				htmx = true,
 			}
 

@@ -5,7 +5,9 @@ return {
 		priority = 1000,
 		config = function()
 			require 'custom.catppuccin'
-			-- vim.cmd.colorscheme("gitgud_dark")
+			-- vim.cmd.colorscheme("antiphoton")
+			-- vim.cmd.colorscheme("gitgud_light")
+			-- vim.cmd.colorscheme("github_light")
 			-- vim.cmd.colorscheme("tokyonight-night")
 			-- vim.cmd.colorscheme("intellij")
 		end,
@@ -17,6 +19,7 @@ return {
 	"axvr/photon.vim",
 	"jaredgorski/fogbell.vim",
 	"elianiva/gitgud.nvim",
+	"projekt0n/github-nvim-theme",
 	"atelierbram/Base4Tone-nvim",
 	"jascha030/nitepal.nvim",
 	"chiendo97/intellij.vim",
