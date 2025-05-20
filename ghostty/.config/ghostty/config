@@ -1,0 +1,29 @@
+# theme = tokyonight_night
+# theme = 0x96f
+# theme = catppuccin-macchiato
+# theme = OneHalfDark
+# foreground = #abb2bf
+# background = #080808
+
+font-size = 24
+font-family = JetBrains Mono
+# font-family = Iosevka Nerd Font 
+
+cursor-style = block
+cursor-style-blink = false
+
+macos-option-as-alt = left
+macos-titlebar-style = tabs
+
+mouse-hide-while-typing = true
+
+keybind = ctrl+1=text:\x1b[27;5;49~
+keybind = ctrl+2=text:\x1b[27;5;50~
+keybind = ctrl+3=text:\x1b[27;5;51~
+keybind = ctrl+4=text:\x1b[27;5;52~
+keybind = ctrl+5=text:\x1b[27;5;53~
+keybind = ctrl+6=text:\x1b[27;5;54~
+keybind = ctrl+7=text:\x1b[27;5;55~
+keybind = ctrl+8=text:\x1b[27;5;56~
+keybind = ctrl+9=text:\x1b[27;5;57~
+keybind = ctrl+0=text:\x1b[27;5;48~
