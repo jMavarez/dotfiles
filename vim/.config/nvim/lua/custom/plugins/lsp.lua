@@ -30,12 +30,16 @@ return {
 						"--completion-style=detailed",
 						"--header-insertion=never",
 						"--cross-file-rename",
-						"--compile-commands-dir=./redondo/.cxx/Debug/6d4h5723/arm64-v8a"
+						"--compile-commands-dir=./redondo/.cxx/Debug/6d4h5723/arm64-v8a",
 					},
 					filetypes = { "c", "cpp", "objc", "objcpp" },
-					root_dir = require('lspconfig.util').root_pattern('compile_commands.json', 'compile_flags.txt', '.git'),
+					root_dir = require("lspconfig.util").root_pattern(
+						"compile_commands.json",
+						"compile_flags.txt",
+						".git"
+					),
 					single_file_support = true,
-					capabilities = require('cmp_nvim_lsp').default_capabilities(),
+					capabilities = require("cmp_nvim_lsp").default_capabilities(),
 
 					init_options = {
 						clangdFileStatus = true, -- Show file status in LSP client
@@ -48,8 +52,8 @@ return {
 							},
 							diagnostics = {
 								clangTidy = true, -- Enable Clang-Tidy diagnostics
-							}
-						}
+							},
+						},
 					},
 				},
 				gopls = true,
@@ -108,6 +112,7 @@ return {
 				-- 	-- filetypes = { "kotlin" },
 				-- },
 				htmx = true,
+				postgres_lsp = true,
 			}
 
 			local servers_to_install = vim.tbl_filter(function(key)
@@ -153,8 +158,13 @@ return {
 					map("<leader>re", function()
 						vim.lsp.buf.rename()
 					end, "[Re]name")
+					-- map("<leader>df", function() vim.lsp.buf.format() end, "[D]o [F]ormat")
 					map("<leader>df", function()
-						vim.lsp.buf.format()
+						require("conform").format({
+							bufnr = args.buf,
+							lsp_fallback = true,
+							quiet = true,
+						})
 					end, "[D]o [F]ormat")
 					map("K", function()
 						vim.lsp.buf.hover()
@@ -171,15 +181,15 @@ return {
 			})
 
 			-- TODO: Auto save using neovim's buf.format
-			-- vim.api.nvim_create_autocmd("BufWritePre", {
-			-- 	callback = function(args)
-			-- 		require("conform").format({
-			-- 			bufnr = args.buf,
-			-- 			lsp_fallback = true,
-			-- 			quiet = true,
-			-- 		})
-			-- 	end,
-			-- })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				callback = function(args)
+					require("conform").format({
+						bufnr = args.buf,
+						lsp_fallback = true,
+						quiet = true,
+					})
+				end,
+			})
 		end,
 	},
 }

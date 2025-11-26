@@ -30,7 +30,6 @@ return {
 				local fileinfo = statusline.section_fileinfo()
 				local location = statusline.section_location()
 				local search = statusline.section_searchcount({ trunc_width = 75 })
-				local time = statusline.section_time()
 
 				local groups = statusline.combine_groups({
 					{ hl = mode_hl, strings = { mode } },
@@ -40,7 +39,6 @@ return {
 					"%=", -- End left alignment
 					{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
 					{ hl = mode_hl, strings = { search, location } },
-					{ hl = mode_hl, strings = { time } },
 				})
 				return groups
 			end

@@ -1,6 +1,6 @@
 local set = vim.keymap.set
 -- More confortable to the fingers.
-set("n", ";", ":")
+-- set("n", ";", ":")
 set("i", "jf", "<Esc>")
 
 -- Search
