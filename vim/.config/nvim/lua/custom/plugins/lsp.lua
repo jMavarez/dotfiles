@@ -113,6 +113,7 @@ return {
 				-- },
 				htmx = true,
 				postgres_lsp = true,
+				zls = true,
 			}
 
 			local servers_to_install = vim.tbl_filter(function(key)

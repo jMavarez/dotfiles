@@ -12,13 +12,17 @@ theme = Github Dark Colorblind
 
 font-size = 24
 # font-family = JetBrains Mono
-font-family = Iosevka Nerd Font 
+font-family = Iosevka Nerd Font
+# font-family = Paper Mono
+# font-feature = ss01,zero
 
 cursor-style = block
 cursor-style-blink = false
 
 macos-option-as-alt = left
 macos-titlebar-style = tabs
+macos-non-native-fullscreen = true
+macos-icon = retro
 
 mouse-hide-while-typing = true
 
@@ -32,3 +36,4 @@ keybind = ctrl+6=text:\x1b[54;5u
 keybind = ctrl+7=text:\x1b[55;5u
 keybind = ctrl+8=text:\x1b[56;5u
 keybind = ctrl+9=text:\x1b[57;5u
+
